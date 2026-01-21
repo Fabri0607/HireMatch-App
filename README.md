@@ -14,7 +14,7 @@
 </p>
 
 <div class="note">
-  <strong>Repositorio del Frontend:</strong><br>
+  <strong>Repositorio del Backend:</strong><br>
   👉 <em>https://github.com/Fabri0607/HireMatch-Api</em>
 </div>
 
