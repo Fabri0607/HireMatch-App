@@ -1,50 +1,296 @@
-# Welcome to your Expo app 👋
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>HireMatch - README</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      margin: 40px;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #1f2937;
+    }
+    h1 {
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 10px;
+    }
+    h2 {
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 6px;
+      margin-top: 40px;
+    }
+    code {
+      background-color: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    pre {
+      background-color: #f3f4f6;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 15px;
+    }
+    table th, table td {
+      border: 1px solid #d1d5db;
+      padding: 10px;
+      text-align: left;
+    }
+    table th {
+      background-color: #f9fafb;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    .note {
+      background-color: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 15px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<h1>HireMatch</h1>
 
-## Get started
+<p>
+  <strong>HireMatch</strong> es una aplicación móvil de emparejamiento laboral (job matching) diseñada bajo un enfoque
+  <em>mobile-first</em>, que conecta postulantes con empresas mediante una interfaz tipo
+  <strong>Tinder-like</strong> basada en tarjetas y gestos de deslizamiento.
+</p>
 
-1. Install dependencies
+<div class="note">
+  <strong>Repositorio del Frontend:</strong><br>
+  👉 <em>Aquí puedes agregar el link al repositorio del frontend</em>
+</div>
 
-   ```bash
-   npm install
-   ```
+<h2>Propósito y Alcance</h2>
 
-2. Start the app
+<p>
+  Este documento proporciona una visión general del sistema <strong>HireMatch</strong>, cubriendo su arquitectura,
+  tecnologías principales, flujos de usuario y componentes clave.
+  Para información detallada sobre subsistemas específicos, se recomienda consultar:
+</p>
 
-   ```bash
-   npx expo start
-   ```
+<ul>
+  <li>Configuración inicial y entorno de desarrollo</li>
+  <li>Patrones de arquitectura y diseño del sistema</li>
+  <li>Capa de servicios de la API</li>
+  <li>Flujos de autenticación y onboarding</li>
+  <li>Experiencia del postulante y de la empresa</li>
+</ul>
 
-In the output, you'll find options to open the app in a
+<h2>¿Qué es HireMatch?</h2>
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+<p>
+  HireMatch es una aplicación de emparejamiento laboral que implementa una
+  <strong>arquitectura de doble tipo de usuario</strong>:
+</p>
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+<ul>
+  <li>
+    <strong>Postulantes:</strong> exploran ofertas de empleo deslizando tarjetas y aplicando
+    acciones de <em>like</em> o <em>super-like</em>.
+  </li>
+  <li>
+    <strong>Empresas:</strong> crean, administran y eliminan ofertas de trabajo, además de
+    monitorear la interacción de los postulantes.
+  </li>
+</ul>
 
-## Get a fresh project
+<p>
+  La aplicación está construida como una solución móvil multiplataforma para
+  <strong>iOS y Android</strong>, utilizando un frontend en
+  <strong>React Native</strong> y un backend basado en
+  <strong>Java Spring Boot</strong>.
+</p>
 
-When you're ready, run:
+<h2>Tecnologías Principales</h2>
 
-```bash
-npm run reset-project
-```
+<table>
+  <thead>
+    <tr>
+      <th>Tecnología</th>
+      <th>Propósito</th>
+      <th>Versión</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Expo</td>
+      <td>Plataforma de desarrollo y build</td>
+      <td>54.0.4</td>
+    </tr>
+    <tr>
+      <td>React Native</td>
+      <td>Framework móvil multiplataforma</td>
+      <td>0.81.4</td>
+    </tr>
+    <tr>
+      <td>React</td>
+      <td>Librería de UI</td>
+      <td>19.1.0</td>
+    </tr>
+    <tr>
+      <td>TypeScript</td>
+      <td>Tipado estático</td>
+      <td>~5.8.3</td>
+    </tr>
+    <tr>
+      <td>expo-router</td>
+      <td>Ruteo basado en archivos</td>
+      <td>~6.0.2</td>
+    </tr>
+    <tr>
+      <td>Axios</td>
+      <td>Cliente HTTP</td>
+      <td>^1.11.0</td>
+    </tr>
+    <tr>
+      <td>AsyncStorage</td>
+      <td>Persistencia local</td>
+      <td>2.2.0</td>
+    </tr>
+    <tr>
+      <td>NativeWind</td>
+      <td>Tailwind CSS para React Native</td>
+      <td>^4.1.23</td>
+    </tr>
+    <tr>
+      <td>react-native-deck-swiper</td>
+      <td>Componente de swipe</td>
+      <td>^2.0.19</td>
+    </tr>
+  </tbody>
+</table>
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+<p>
+  El backend expone una API REST alojada en <code>http://192.168.0.5:8080</code> y utiliza
+  <strong>autenticación basada en JWT</strong>.
+</p>
 
-## Learn more
+<h2>Arquitectura del Sistema</h2>
 
-To learn more about developing your project with Expo, look at the following resources:
+<p>
+  HireMatch sigue una arquitectura en capas con separación clara de responsabilidades:
+</p>
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+<ul>
+  <li><strong>Root Layout:</strong> punto de entrada de la aplicación y control inicial de autenticación</li>
+  <li><strong>Capa de Autenticación:</strong> registro, login y verificación de usuarios</li>
+  <li><strong>Capa de Servicios API:</strong> comunicación centralizada con el backend</li>
+  <li><strong>Rutas Protegidas:</strong> experiencias separadas según tipo de perfil</li>
+  <li><strong>Persistencia Local:</strong> manejo de sesión mediante AsyncStorage</li>
+</ul>
 
-## Join the community
+<h2>Tipos de Usuario y Flujos</h2>
 
-Join our community of developers creating universal apps.
+<h3>Postulantes (<code>tipo_perfil = 'postulante'</code>)</h3>
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+<ul>
+  <li>Interfaz principal: visor de ofertas con swipe</li>
+  <li>Acciones principales:
+    <ul>
+      <li><code>likeJobOffer(ofertaId)</code></li>
+      <li><code>superLikeJobOffer(ofertaId)</code></li>
+      <li><code>getUserApplications(estado?)</code></li>
+    </ul>
+  </li>
+  <li>Navegación por pestañas: Home, Applications y Profile</li>
+</ul>
+
+<h3>Empresas (<code>tipo_perfil = 'empresa'</code>)</h3>
+
+<ul>
+  <li>Gestión de ofertas laborales</li>
+  <li>Acciones principales:
+    <ul>
+      <li><code>createJobOffer(data)</code></li>
+      <li><code>updateJobOffer(id, data)</code></li>
+      <li><code>deleteJobOffer(id)</code></li>
+      <li><code>getJobOffersByCompany(empresaId)</code></li>
+    </ul>
+  </li>
+  <li>Navegación específica para empresas</li>
+</ul>
+
+<h2>Componentes Clave</h2>
+
+<h3>1. Capa de Servicios API</h3>
+
+<p>
+  Ubicada en <code>app/services/api.ts</code>, es el componente más crítico del sistema.
+  Centraliza la comunicación con el backend y gestiona:
+</p>
+
+<ul>
+  <li>Autenticación y registro</li>
+  <li>Gestión de perfiles</li>
+  <li>CRUD de ofertas laborales</li>
+  <li>Emparejamiento y postulaciones</li>
+</ul>
+
+<h3>2. Sistema de Navegación</h3>
+
+<p>
+  Implementado mediante <strong>expo-router</strong>, usando ruteo basado en archivos y
+  layouts protegidos por autenticación.
+</p>
+
+<h3>3. Autenticación y Sesión</h3>
+
+<ul>
+  <li>Tokens JWT almacenados en AsyncStorage</li>
+  <li>Inyección automática del token en cada request</li>
+  <li>Persistencia de sesión entre reinicios</li>
+</ul>
+
+<h3>4. Validación de Datos</h3>
+
+<p>
+  Se implementa validación del lado del cliente para perfiles, ofertas laborales
+  y formatos de datos como teléfonos, URLs y enums.
+</p>
+
+<h2>Inicio de la Aplicación</h2>
+
+<p>
+  El flujo de arranque incluye:
+</p>
+
+<ul>
+  <li>Carga de fuentes personalizadas</li>
+  <li>Pantalla splash de 2 segundos</li>
+  <li>Verificación de sesión activa</li>
+  <li>Redirección según estado de autenticación</li>
+</ul>
+
+<h2>Resumen</h2>
+
+<p>
+  HireMatch es una aplicación móvil moderna de emparejamiento laboral que combina:
+</p>
+
+<ul>
+  <li>Arquitectura modular y escalable</li>
+  <li>Experiencias diferenciadas por tipo de usuario</li>
+  <li>Comunicación segura mediante JWT</li>
+  <li>Navegación tipada y basada en archivos</li>
+  <li>Persistencia local para una experiencia fluida</li>
+</ul>
+
+<p>
+  Este diseño permite una base sólida para futuras extensiones y mejoras del sistema.
+</p>
+
+</body>
+</html>
