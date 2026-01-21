@@ -15,7 +15,7 @@
 
 <div class="note">
   <strong>Repositorio del Frontend:</strong><br>
-  👉 <em>Aquí puedes agregar el link al repositorio del frontend</em>
+  👉 <em>https://github.com/Fabri0607/HireMatch-Api</em>
 </div>
 
 <h2>Propósito y Alcance</h2>
@@ -119,7 +119,7 @@
 </table>
 
 <p>
-  El backend expone una API REST alojada en <code>http://192.168.0.5:8080</code> y utiliza
+  El backend expone una API REST alojada en <code>http://localhost:8080</code> y utiliza
   <strong>autenticación basada en JWT</strong>.
 </p>
 
