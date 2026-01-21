@@ -2,61 +2,6 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>HireMatch - README</title>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      margin: 40px;
-      color: #333;
-    }
-    h1, h2, h3 {
-      color: #1f2937;
-    }
-    h1 {
-      border-bottom: 3px solid #2563eb;
-      padding-bottom: 10px;
-    }
-    h2 {
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 6px;
-      margin-top: 40px;
-    }
-    code {
-      background-color: #f3f4f6;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.95em;
-    }
-    pre {
-      background-color: #f3f4f6;
-      padding: 15px;
-      border-radius: 6px;
-      overflow-x: auto;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 15px;
-    }
-    table th, table td {
-      border: 1px solid #d1d5db;
-      padding: 10px;
-      text-align: left;
-    }
-    table th {
-      background-color: #f9fafb;
-    }
-    ul {
-      margin-left: 20px;
-    }
-    .note {
-      background-color: #eff6ff;
-      border-left: 5px solid #2563eb;
-      padding: 15px;
-      margin: 20px 0;
-    }
-  </style>
 </head>
 <body>
 
